@@ -2,102 +2,95 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="flex min-h-screen flex-col items-center justify-start bg-gray-900 text-white p-4 sm:p-8 pt-16 sm:pt-24">
+      {/* Hero Section */}
+      <div className="text-center space-y-6 max-w-full px-4 sm:px-0">
+        <h1 className="text-4xl sm:text-5xl font-bold">
+          Hi, I&apos;m [Your Name] - Frontend Developer
+        </h1>
+        <p className="text-lg sm:text-xl text-gray-300">
+          Crafting beautiful and responsive web experiences. I turn ideas into reality with code.
+        </p>
+        <button className="mt-8 px-6 py-3 sm:px-8 sm:py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+          View My Work
+        </button>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+      {/* About Me Section */}
+      <section className="mt-16 sm:mt-20 max-w-2xl w-full text-center px-4">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6">About Me</h2>
+        <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
+          I am a passionate frontend developer dedicated to creating intuitive and engaging user interfaces.
+          With a strong foundation in modern JavaScript frameworks like React and Next.js, and a keen eye for design, I specialize in building responsive and performant web applications. I thrive on solving complex problems and continuously learning new technologies to deliver exceptional digital experiences.
+        </p>
+      </section>
+
+      {/* Projects Section */}
+      <section className="mt-16 sm:mt-20 max-w-5xl w-full px-4">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center">My Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {/* Project Card Template */}
+          {[
+            { title: "Project Alpha", description: "A web application for managing tasks, built with a focus on user experience and real-time collaboration.", tech: "React, Next.js, Tailwind CSS, Firebase" },
+            { title: "Project Beta", description: "An e-commerce platform with a custom CMS, designed for scalability and ease of use.", tech: "Vue.js, Nuxt.js, Node.js, PostgreSQL" },
+            { title: "Project Gamma", description: "A mobile application for tracking personal fitness goals and progress.", tech: "React Native, Expo, GraphQL" }
+          ].map((project) => (
+            <div key={project.title} className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:-translate-y-1">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-3">{project.title}</h3>
+              <p className="text-sm sm:text-base text-gray-400 mb-4">
+                {project.description}
+              </p>
+              <p className="text-xs sm:text-sm text-gray-500 mb-4">
+                Technologies: {project.tech}
+              </p>
+              <div className="flex space-x-4">
+                <a href="#" className="text-blue-400 hover:text-blue-300 transition duration-300">Live Demo</a>
+                <a href="#" className="text-blue-400 hover:text-blue-300 transition duration-300">View Code</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="mt-16 sm:mt-20 max-w-4xl w-full text-center px-4">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-8">My Skills</h2>
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+          {[
+            "HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js",
+            "Tailwind CSS", "Git", "Responsive Design", "API Integration",
+            "Node.js", "Firebase", "GraphQL", "REST APIs", "UI/UX Principles"
+          ].map((skill) => (
+            <span
+              key={skill}
+              className="bg-gray-700 text-gray-300 px-3 py-2 sm:px-4 sm:py-2 rounded-lg text-sm sm:text-base font-medium shadow-md hover:bg-gray-600 transition duration-300 ease-in-out"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="mt-16 sm:mt-20 max-w-2xl w-full text-center pb-16 sm:pb-24 px-4">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-8">Get In Touch</h2>
+        <p className="text-base sm:text-lg text-gray-400 mb-6">
+          Let&apos;s connect! Feel free to reach out if you have any questions, project ideas, or just want to say hi.
+        </p>
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
+          <a href="#" className="text-blue-400 hover:text-blue-300 transition duration-300 text-lg sm:text-xl">
+            LinkedIn
           </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+          <a href="#" className="text-blue-400 hover:text-blue-300 transition duration-300 text-lg sm:text-xl">
+            GitHub
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <p className="text-lg sm:text-xl text-gray-300">
+          <a href="mailto:your.email@example.com" className="hover:text-blue-300 transition duration-300">
+            your.email@example.com
+          </a>
+        </p>
+      </section>
+    </main>
   );
 }
